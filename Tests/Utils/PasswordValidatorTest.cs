@@ -77,7 +77,7 @@ public class PasswordValidatorTest
     public void Validate_WhenPasswordIsTooLong_ReturnsIsTooLongError()
     {
         validator.Initialize(8, 20, true, true);
-        
+
         var result = validator.Validate("abcdefghijkmnopqrstuvwxyz1234567890");
 
         Assert.Contains(ValidationErrorEnum.IsTooLong, result.Errors);
@@ -88,7 +88,7 @@ public class PasswordValidatorTest
     public void Validate_WhenPasswordDoesNotContainDigitsAndCapitalLetters_ReturnsDoesNotContainDigitsAndCapitalLettersErrors()
     {
         validator.Initialize(8, 20, true, true);
-        
+
         var result = validator.Validate("abcdefg");
 
         Assert.Contains(ValidationErrorEnum.DoesNotContainDigits, result.Errors);
@@ -100,7 +100,7 @@ public class PasswordValidatorTest
     public void Validate_WhenPasswordDoesNotContainDigits_ReturnsDoesNotContainDigitsError()
     {
         validator.Initialize(8, 20, true, true);
-        
+
         var result = validator.Validate("Abcdefgh");
 
         Assert.Contains(ValidationErrorEnum.DoesNotContainDigits, result.Errors);
@@ -111,7 +111,7 @@ public class PasswordValidatorTest
     public void Validate_WhenPasswordDoesNotContainCapitalLetters_ReturnsDoesNotContainCapitalLettersError()
     {
         validator.Initialize(8, 20, true, true);
-        
+
         var result = validator.Validate("abcdefg1");
 
         Assert.Contains(ValidationErrorEnum.DoesNotContainCapitalLetters, result.Errors);
@@ -122,7 +122,7 @@ public class PasswordValidatorTest
     public void Validate_WhenPasswordIsValid_ReturnsIsCorrect()
     {
         validator.Initialize(8, 20, true, true);
-        
+
         var result = validator.Validate("Abcdefg1");
 
         Assert.True(result.IsCorrect);
